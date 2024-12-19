@@ -3,9 +3,8 @@ package repositorio;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
-
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 import modelo.Funcionarios;
 
 public class Funcionario implements Serializable {
