@@ -24,13 +24,13 @@ public Credencial() {
 		this.manager = manager;
 	}
 	
-	public List<Credenciais> pesquisar(String descricao){
+	public List<Credenciais> pesquisar(String cargo){
 		CriteriaBuilder criteriaBuilder = manager.getCriteriaBuilder();
 		
 		CriteriaQuery<Credenciais> criteriaQuery = criteriaBuilder.createQuery(Credenciais.class);
 		Root<Credenciais> root = criteriaQuery.from(Credenciais.class);
 		criteriaQuery.select(root);
-		criteriaQuery.where(criteriaBuilder.like(root.get("descricao"), descricao + "%"));
+		criteriaQuery.where(criteriaBuilder.like(root.get("cargo"), cargo + "%"));
 		
 		TypedQuery<Credenciais> query = manager.createQuery(criteriaQuery);
 		

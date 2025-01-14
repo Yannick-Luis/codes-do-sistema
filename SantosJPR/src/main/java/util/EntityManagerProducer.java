@@ -15,7 +15,7 @@ import jakarta.persistence.Persistence;
 		private EntityManagerFactory factory;
 		
 		public EntityManagerProducer() {
-			this.factory = Persistence.createEntityManagerFactory("jemussePU");
+			this.factory = Persistence.createEntityManagerFactory("CadastroPU");
 		}
 		
 		@Produces

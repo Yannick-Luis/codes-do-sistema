@@ -21,33 +21,22 @@ public class TransacionalInterceptor implements Serializable  {
 
 	
 	@AroundInvoke
-	public Object invoke (InvocationContext context) throws Exception {
-		EntityTransaction trx = manager.getTransaction();
-		boolean criador = false;
-		
-		try {
-			if (trx.isActive()) {
-				trx.begin();
-				trx.rollback();
-			
-				
-				trx.begin();
-				
-				criador = true;
-			}
-			
-			return context.proceed();
-		} catch (Exception e) {
-			if (trx != null && criador) {
-				trx.rollback();
-			}
-			
-			throw e;
-		} finally {
-			if (trx != null && trx.isActive() && criador) {
-				trx.commit();
-			}
-		}
+	public Object invoke(InvocationContext context) throws Exception {
+	    EntityTransaction trx = manager.getTransaction();
+	    try {
+	        if (!trx.isActive()) {
+	            trx.begin();
+	        }
+	        return context.proceed();  
+	    } catch (Exception e) {
+	        if (trx.isActive()) {
+	            trx.rollback();  
+	        }
+	        throw e;  
+	    } finally {
+	        if (trx.isActive()) {
+	            trx.commit();  
+	        }
+	    }
 	}
-
 }

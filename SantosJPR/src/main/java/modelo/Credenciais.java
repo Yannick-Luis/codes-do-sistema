@@ -22,19 +22,14 @@ public class Credenciais implements Serializable {
 	private Long id;
 	
 	@Column (nullable = false ,length = 80)
-	private String descricao;
+	private String Cargo;
 
-	@Override
-	public String toString() {
-		return "Credenciais [id=" + id + "]";
+	public String getCargo() {
+		return Cargo;
 	}
 
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
+	public void setCargo(String cargo) {
+		Cargo = cargo;
 	}
 
 	public Long getId() {
@@ -43,10 +38,6 @@ public class Credenciais implements Serializable {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
 
 	@Override
@@ -66,4 +57,11 @@ public class Credenciais implements Serializable {
 		return Objects.equals(id, other.id);
 	}
 
+	@Override
+	public String toString() {
+		return "Credenciais [id=" + id + "]";
+	}
+	
 }
+
+	

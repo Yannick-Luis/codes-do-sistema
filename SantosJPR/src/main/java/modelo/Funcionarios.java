@@ -14,150 +14,149 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+import jakarta.persistence.Entity; 
 
-
-
+@Entity  
 public class Funcionarios implements Serializable {
 
-	private static final long serialVersionUID = 1L;
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	
-	@Column(name = "Nome",nullable = false, length = 80)
-	private String nome;
-	
-	@Column(name = "Sobrenome",nullable = false, length = 120)
-	private String sobrenome;
-	
-	
-	@Column(name = "Email",nullable = false, length = 80)
-	private String email;
-	
-	@Column(name = "Telefone",nullable = false ,length = 200)
-	private String Telefone;
-	
-	@Enumerated(EnumType.STRING)
-	@Column(name = "Cargo",nullable = false, length = 30)
-	private Cargo Cargo;
-	
-	@Column(name = "Bairro",nullable = false, length = 50)
-	private String Bairro;
-	 
-	@Column(name = "Numero_casa",nullable = false, length = 10)
-	private String numeroCasa;
-	
-	
-	@Temporal(TemporalType.DATE)
-	@Column(name = "Data_nascimento")
-	private Date DataNascimento;
-	
-	@ManyToOne
-	@JoinColumn(name ="Credenciais_id")
-private Credenciais Credenciais;
+    private static final long serialVersionUID = 1L;
 
-	@Override
-	public String toString() {
-		return "Funcionarios [id=" + id + "]";
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(id);
-	}
+    @Column(name = "Nome", nullable = false, length = 80)
+    private String nome;
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Funcionarios other = (Funcionarios) obj;
-		return Objects.equals(id, other.id);
-	}
+    @Column(name = "Sobrenome", nullable = false, length = 120)
+    private String sobrenome;
 
-	public Long getId() {
-		return id;
-	}
+    @Column(name = "Email", nullable = false, length = 80)
+    private String email;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    @Column(name = "Telefone", nullable = false, length = 200)
+    private String telefone;
 
-	public String getNome() {
-		return nome;
-	}
+    @Enumerated(EnumType.STRING)
+    @Column(name = "Cargo", nullable = false, length = 30)
+    private Cargo cargo;
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    @Column(name = "Bairro", nullable = false, length = 50)
+    private String bairro;
 
-	public String getSobrenome() {
-		return sobrenome;
-	}
+    @Column(name = "Numero_casa", nullable = false, length = 10)
+    private String numeroCasa;
 
-	public void setSobrenome(String sobrenome) {
-		this.sobrenome = sobrenome;
-	}
+    @Temporal(TemporalType.DATE)
+    @Column(name = "Data_nascimento")
+    private Date dataNascimento;
 
-	public String getEmail() {
-		return email;
-	}
+    @ManyToOne
+    @JoinColumn(name = "Credenciais_id")
+    private Credenciais credenciais;
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    // Getters and setters
 
-	public String getTelefone() {
-		return Telefone;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setTelefone(String telefone) {
-		Telefone = telefone;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public Cargo getCargo() {
-		return Cargo;
-	}
+    public String getNome() {
+        return nome;
+    }
 
-	public void setCargo(Cargo cargo) {
-		Cargo = cargo;
-	}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-	public String getBairro() {
-		return Bairro;
-	}
+    public String getSobrenome() {
+        return sobrenome;
+    }
 
-	public void setBairro(String bairro) {
-		Bairro = bairro;
-	}
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
+    }
 
-	public String getNumeroCasa() {
-		return numeroCasa;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public void setNumeroCasa(String numeroCasa) {
-		this.numeroCasa = numeroCasa;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public Date getDataNascimento() {
-		return DataNascimento;
-	}
+    public String getTelefone() {
+        return telefone;
+    }
 
-	public void setDataNascimento(Date dataNascimento) {
-		DataNascimento = dataNascimento;
-	}
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
 
-	public Credenciais getCredenciais() {
-		return Credenciais;
-	}
+    public Cargo getCargo() {
+        return cargo;
+    }
 
-	public void setCredenciais(Credenciais credenciais) {
-		Credenciais = credenciais;
-	}
-	
+    public void setCargo(Cargo cargo) {
+        this.cargo = cargo;
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    public String getNumeroCasa() {
+        return numeroCasa;
+    }
+
+    public void setNumeroCasa(String numeroCasa) {
+        this.numeroCasa = numeroCasa;
+    }
+
+    public Date getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    public Credenciais getCredenciais() {
+        return credenciais;
+    }
+
+    public void setCredenciais(Credenciais credenciais) {
+        this.credenciais = credenciais;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Funcionarios other = (Funcionarios) obj;
+        return Objects.equals(id, other.id);
+    }
+
+    @Override
+    public String toString() {
+        return "Funcionarios [id=" + id + "]";
+    }
 
 }

@@ -26,8 +26,8 @@ public static EntityManager manager;
 	}
 	
 	public static List<Funcionarios> pesquisar(String nome) {
-		TypedQuery<Funcionarios>query = manager.createQuery("from Empresa where nomeFuncionario like :nomeFuncionario", Funcionarios.class);
-		query.setParameter("nomeFuncionario", nome + "%");
+		TypedQuery<Funcionarios>query = manager.createQuery("from Funcionarios where nome like :nome", Funcionarios.class);
+		query.setParameter("nome", nome + "%");
 		return query.getResultList();
 	}
 	
