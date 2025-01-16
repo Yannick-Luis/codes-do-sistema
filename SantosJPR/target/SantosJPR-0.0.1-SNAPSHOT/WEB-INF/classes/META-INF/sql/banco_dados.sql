@@ -4,12 +4,13 @@ CREATE TABLE `credenciais` (
   )
   
   INSERT INTO `credenciais` (`id`, `Cargo`) VALUES
+  (1, 'Tecnico IT');
 (2, 'Contabilista'),
 (3, 'Cozinheira'),
-(5, 'Desenvolvedor'),
-(6, 'Motorista'),
 (4, 'Secretaria'),
-(1, 'Tecnico IT');
+(5, 'Desenvolvedor'),
+(6, 'Motorista');
+
 
 CREATE TABLE `funcionarios` (
   `id` int(12) NOT NULL,
@@ -32,7 +33,8 @@ CREATE TABLE `funcionarios` (
 (5, 'Gribi', 'Zilta Txovo', 'Gribizilta@gmail.com', 855557809, 'Desenvolvedor', 'Nkobe', '798', '1993-06-24', 5);
 
 ALTER TABLE `credenciais`
-  ADD PRIMARY KEY (`Cargo`);
+  ADD PRIMARY KEY (`id`);
+
 
   ALTER TABLE `funcionarios`
   ADD PRIMARY KEY (`id`),
@@ -42,4 +44,4 @@ ALTER TABLE `credenciais`
   MODIFY `id` int(12) NOT NULL
   
   ALTER TABLE `funcionarios`
-  ADD CONSTRAINT `cargo` FOREIGN KEY (`Cargo`) REFERENCES `credenciais` (`cargo`);
+  FOREIGN KEY (`Credenciais_id`) REFERENCES `credenciais` (`id`);
